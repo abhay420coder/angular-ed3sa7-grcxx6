@@ -26,15 +26,14 @@
         Event binding uses a set of parentheses, ( ), around the event, as in the (click) event on the <button> element. 
   -->
 
-  <button type="button" (click)="share()">share</button>
-  <app-product-alerts
-  [product]="product">
-</app-product-alerts>
-</div>
+  <button type="button" (click)="share()">Share</button>
 
-<!-- 
+  <app-product-alerts [product]="product" (notify)="onNotify()">
+  </app-product-alerts>
+  <!-- 
   Currently, the product list displays the name and description of each product. 
   The ProductListComponent also defines a products property that contains imported data for each product from the products array in products.ts.
  -->
 
-<!-- The next step is to create a new alert feature that uses product data from the ProductListComponent.  -->
+  <!-- The next step is to create a new alert feature that uses product data from the ProductListComponent.  -->
+</div>
