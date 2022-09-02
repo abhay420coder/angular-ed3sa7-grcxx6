@@ -1,0 +1,40 @@
+<h2>Products</h2>
+
+<!-- 1. Add an *ngFor structural directive on a <div>, as follows. -->
+
+<!--2.  Inside the <div>, add an <h3> and {{ product.name }}. 
+      The {{ product.name }} statement is an example of Angular's interpolation syntax. 
+      Interpolation {{ }} lets you render the property value as text. -->
+
+<!--3. To make each product name a link to product details, add the <a> element around {{ product.name }}.-->
+
+<!--4. Set the title to be the product's name by using the property binding [ ] syntax, as follows:  -->
+
+<div *ngFor="let product of products">
+  <h3>
+    <a [title]="product.name + ' details'">
+      {{ product.name }}
+    </a>
+  </h3>
+
+  <!--5. Add the product descriptions. On a <p> element, use an *ngIf directive 
+    so that Angular only creates the <p> element if the current product has a description. -->
+  <p *ngIf="product.description">Description: {{ product.description }}</p>
+
+  <!--6.  Add a button so users can share a product. 
+        Bind the button's click event to the share() method in product-list.component.ts. 
+        Event binding uses a set of parentheses, ( ), around the event, as in the (click) event on the <button> element. 
+  -->
+
+  <button type="button" (click)="share()">share</button>
+  <app-product-alerts
+  [product]="product">
+</app-product-alerts>
+</div>
+
+<!-- 
+  Currently, the product list displays the name and description of each product. 
+  The ProductListComponent also defines a products property that contains imported data for each product from the products array in products.ts.
+ -->
+
+<!-- The next step is to create a new alert feature that uses product data from the ProductListComponent.  -->
